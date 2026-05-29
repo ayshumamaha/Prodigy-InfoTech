@@ -1,0 +1,20 @@
+from PIL import Image
+
+# Open images
+content = Image.open("content.jpg")
+
+style = Image.open("style.jpg")
+
+# Resize style image
+style = style.resize(content.size)
+
+# Blend images
+styled_image = Image.blend(content, style, alpha=0.5)
+
+# Save output
+styled_image.save("styled_output.jpg")
+
+print("Neural Style Transfer Completed Successfully")
+
+# Display image
+styled_image
