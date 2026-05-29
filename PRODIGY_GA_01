@@ -1,0 +1,19 @@
+from transformers import pipeline
+
+# Load GPT-2 text generator
+generator = pipeline("text-generation", model="gpt2")
+
+# Prompt
+prompt = "Artificial Intelligence is transforming the future because"
+
+# Generate text
+result = generator(
+    prompt,
+    max_length=80,
+    num_return_sequences=1
+)
+
+# Display generated text
+print("\n===== GENERATED TEXT =====\n")
+
+print(result[0]['generated_text'])
